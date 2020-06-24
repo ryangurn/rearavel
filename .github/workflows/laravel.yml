@@ -41,15 +41,15 @@ jobs:
         # MYSQL_DATABASE - name for the default database that is created
         mysql database: rearavel # optional, default is 
         # MYSQL_USER - create the specified user with superuser power for created database
-        mysql user: rearavel# optional, default is 
+        mysql user: root # optional, default is 
         # MYSQL_PASSWORD - specified superuser password which user is power for created database
-        mysql password: rearavel # optional, default is 
+        mysql password: # optional, default is 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: mysql
         DB_HOST: 127.0.0.1
         DB_PORT: 3306
-        DB_USERNAME: rearavel
-        DB_PASSWORD: rearavel
+        DB_USERNAME: root
+        DB_PASSWORD: 
         DB_DATABASE: rearavel
       run: vendor/bin/phpunit
