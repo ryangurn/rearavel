@@ -1,0 +1,55 @@
+name: rearavel
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Generate key
+      run: php artisan key:generate
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
+    - name: Start MariaDB
+      uses: getong/mariadb-action@v1.1
+      with:
+        # The port of host
+        host port: 3306 # optional, default is 3306
+        # The port of container
+        container port: 3306 # optional, default is 3306
+        # --character-set-server - The character set of MySQL server
+        character set server: utf8mb4 # optional, default is utf8mb4
+        # --collation-server - The character collation of MySQL server
+        collation server: utf8mb4_general_ci# optional, default is utf8mb4_general_ci
+        # Version of MariaDB to use
+        mariadb version: latest # optional, default is latest
+        # MYSQL_ROOT_PASSWORD - root superuser password
+        mysql root password: testing# optional, default is 
+        # MYSQL_DATABASE - name for the default database that is created
+        mysql database: rearavel # optional, default is 
+        # MYSQL_USER - create the specified user with superuser power for created database
+        mysql user: rearavel# optional, default is 
+        # MYSQL_PASSWORD - specified superuser password which user is power for created database
+        mysql password: rearavel # optional, default is 
+    - name: Execute tests (Unit and Feature tests) via PHPUnit
+      env:
+        DB_CONNECTION: mysql
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_USERNAME: rearavel
+        DB_PASSWORD: rearavel
+        DB_DATABASE: rearavel
+      run: vendor/bin/phpunit
