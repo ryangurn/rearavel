@@ -33,11 +33,11 @@ jobs:
         # --character-set-server - The character set of MySQL server
         character set server: utf8mb4 # optional, default is utf8mb4
         # --collation-server - The character collation of MySQL server
-        collation server: utf8mb4_general_ci# optional, default is utf8mb4_general_ci
+        collation server: utf8mb4_general_ci # optional, default is utf8mb4_general_ci
         # Version of MariaDB to use
         mariadb version: latest # optional, default is latest
         # MYSQL_ROOT_PASSWORD - root superuser password
-        mysql root password: testing# optional, default is 
+        mysql root password:  # optional, default is 
         # MYSQL_DATABASE - name for the default database that is created
         mysql database: rearavel # optional, default is 
         # MYSQL_USER - create the specified user with superuser power for created database
