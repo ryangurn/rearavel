@@ -15,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'setting'], function(){
+    Route::group(['prefix' => 'category'], function(){
+        Route::get('/', 'SettingCategoryController@index');
+        Route::post('/', 'SettingCategoryController@store');
+        Route::get('/{id}', 'SettingCategoryController@show');
+        Route::put('/{id}', 'SettingCategoryController@update');
+        Route::delete('/{id}', 'SettingCategoryController@destroy');
+    });
+
     Route::get('/', 'SettingController@index');
     Route::post('/', 'SettingController@store');
     Route::get('/{id}', 'SettingController@show');
