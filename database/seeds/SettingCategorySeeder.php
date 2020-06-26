@@ -13,5 +13,7 @@ class SettingCategorySeeder extends Seeder
     public function run()
     {
         SettingCategory::create(['name' => 'General', 'description' => 'General Settings Category']);
+        SettingCategory::create(['name' => 'Resume', 'description' => 'Resume Settings Category']);
+        SettingCategory::create(['name' => 'Github', 'description' => 'Github Settings Category']);
     }
 }

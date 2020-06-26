@@ -73,6 +73,13 @@ class SettingController extends Controller
         return response()->json($setting);
     }
 
+    /**
+     * Display the specified setting based on a key
+     * (or multiple comma separated values).
+     *
+     * @param  string  $key
+     * @return Response
+     */
     public function showKey($key)
     {
         // support multiple keys
