@@ -75,9 +75,11 @@ class SettingController extends Controller
 
     public function showKey($key)
     {
+        // support multiple keys
+        $key = explode(",", $key);
         // validate the request
         $validator = validator(['key' => $key], [
-            'key' => 'required|exists:settings,key',
+            'key.*' => 'required|exists:settings,key',
         ]);
 
         // present errors if there is a failure
@@ -87,7 +89,7 @@ class SettingController extends Controller
         }
 
         // get the setting and respond with it
-        $setting = Setting::where('key', '=', $key)->with('category')->first();
+        $setting = Setting::whereIn('key', $key)->with('category')->get();
         return response()->json($setting);
     }
 
