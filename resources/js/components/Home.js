@@ -74,6 +74,19 @@ class Home extends Component {
 
                         </Card>
                     </Grid.Column>
+                    <Grid.Column width={10}>
+                        <Card fluid>
+                            <Card.Content>
+                                <Card.Header>
+                                    <Icon name={'user circle outline'} />
+                                    About Me
+                                </Card.Header>
+                                <Card.Description>
+                                    Hi, I am a programmer based in Eugene Oregon working on developing large scale enterprise applications. I am a full-time student at the University of Oregon. On this website, you will find information about my specialities and services ranging from custom application development to cyber security consulting. Please feel free to take a look around and inquire if you have any questions.
+                                </Card.Description>
+                            </Card.Content>
+                        </Card>
+                    </Grid.Column>
                 </Grid>
             </Container>
         );
