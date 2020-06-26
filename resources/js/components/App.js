@@ -17,11 +17,11 @@ class App extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/setting/1').then(response => {
+        axios.get('/api/setting/key/title').then(response => {
             this.setState({
-                title: response.data.payload
+                title: response.data[0].payload
             });
-        })
+        });
     }
 
     render () {
