@@ -73,6 +73,24 @@ class SettingController extends Controller
         return response()->json($setting);
     }
 
+    public function showKey($key)
+    {
+        // validate the request
+        $validator = validator(['key' => $key], [
+            'key' => 'required|exists:settings,key',
+        ]);
+
+        // present errors if there is a failure
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors()->all());
+        }
+
+        // get the setting and respond with it
+        $setting = Setting::where('key', '=', $key)->with('category')->first();
+        return response()->json($setting);
+    }
+
     /**
      * Update the specified resource in storage.
      *

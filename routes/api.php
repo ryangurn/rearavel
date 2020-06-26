@@ -25,6 +25,7 @@ Route::group(['prefix' => 'setting'], function(){
 
     Route::get('/', 'SettingController@index');
     Route::post('/', 'SettingController@store');
+    Route::get('/key/{key}', 'SettingController@showKey');
     Route::get('/{id}', 'SettingController@show');
     Route::put('/{id}', 'SettingController@update');
     Route::delete('/{id}', 'SettingController@destroy');
