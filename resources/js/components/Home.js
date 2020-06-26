@@ -24,7 +24,7 @@ class Home extends Component {
     componentDidMount() {
         axios.get('/api/setting/key/name,age,github_repo,github_star,github_follower').then(response => {
             this.setState({
-                title: response.data[0].payload,
+                name: response.data[0].payload,
                 age: moment().diff(response.data[1].payload, 'years'),
                 repos: response.data[2].payload.count,
                 stars: response.data[3].payload.count,
@@ -42,6 +42,9 @@ class Home extends Component {
         return (
             <Container>
                 <Grid>
+                    <Grid.Column width={16}>
+                        <h2>About {name}</h2>
+                    </Grid.Column>
                     <Grid.Column width={6}>
                         <Card fluid>
                             <Image src='https://ryangurnick.com/wp-content/uploads/2018/12/EJB2a6T9_400x400.jpg' wrapped ui={false} />
