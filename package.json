@@ -27,6 +27,7 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
+        "moment": "^2.27.0",
         "react-router-dom": "^5.2.0",
         "semantic-ui-react": "^0.88.2"
     }
