@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Console\Commands\GithubFollower;
+use App\Console\Commands\GithubRepo;
+use App\Console\Commands\GithubStar;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        GithubFollower::class,
+        GithubRepo::class,
+        GithubStar::class,
     ];
 
     /**
