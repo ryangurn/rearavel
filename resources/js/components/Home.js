@@ -22,6 +22,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        // set the title
+        axios.get('/api/page/slug/home').then(response => {
+            document.title = response.data[0].title;
+        });
+        // setup the settings values
         axios.get('/api/setting/key/name,age,github_repo,github_star,github_follower').then(response => {
             this.setState({
                 name: response.data[0].payload,
