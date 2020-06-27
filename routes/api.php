@@ -31,6 +31,14 @@ Route::group(['prefix' => 'setting'], function(){
     Route::delete('/{id}', 'SettingController@destroy');
 });
 
+Route::group(['prefix' => 'page'], function(){
+    Route::get('/', 'PageController@index');
+    Route::post('/', 'PageController@store');
+    Route::get('/{id}', 'PageController@show');
+    Route::put('/{id}', 'PageController@update');
+    Route::delete('/{id}', 'PageController@destroy');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
