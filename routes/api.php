@@ -34,6 +34,7 @@ Route::group(['prefix' => 'setting'], function(){
 Route::group(['prefix' => 'page'], function(){
     Route::get('/', 'PageController@index');
     Route::post('/', 'PageController@store');
+    Route::get('/slug/{slug}', 'PageController@showSlug');
     Route::get('/{id}', 'PageController@show');
     Route::put('/{id}', 'PageController@update');
     Route::delete('/{id}', 'PageController@destroy');

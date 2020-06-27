@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
 
+/**
+ * Class PageController
+ * @package App\Http\Controllers
+ */
 class PageController extends Controller
 {
     /**
@@ -67,6 +71,29 @@ class PageController extends Controller
         }
 
         return response()->json(Page::where('id', '=', $id)->first());
+    }
+
+    /**
+     * Display the specified resource based on the slug
+     *
+     * @param string $slug
+     * @return Response
+     */
+    public function showSlug($slug)
+    {
+        // support multiple keys
+        $slug = explode(",", $slug);
+        // validate the request
+        $validator = validator(['slug' => $slug], [
+            'slug.*' => 'required|min:2|max:255|exists:pages,slug',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors()->all());
+        }
+
+        return response()->json(Page::whereIn('slug', $slug)->get());
     }
 
     /**
