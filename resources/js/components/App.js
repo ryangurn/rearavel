@@ -52,7 +52,7 @@ class App extends Component {
 
                     <Container text style={{ marginTop: '7em' }}>
                         <Route exact path={'/'} component={Home} />
-                        <Route path={'/resume'} component={Resume} />
+                        <Route exact path={'/resume'} component={Resume} />
                     </Container>
 
                 </div>
