@@ -6,25 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * Class Setting
+ * Class PageModule
  * @package App
  */
-class Setting extends Model
+class PageModule extends Model
 {
     /**
      * @var string[]
      */
     protected $casts = [
+        'ui' => 'array',
         'payload' => 'array'
     ];
-
-    // category
 
     /**
      * @return HasOne
      */
-    public function category()
+    public function page()
     {
-        return $this->hasOne(SettingCategory::class, 'id', 'category_id');
+        return $this->hasOne(Page::class, 'id', 'page_id');
     }
 }
