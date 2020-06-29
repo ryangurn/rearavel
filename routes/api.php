@@ -38,6 +38,14 @@ Route::group(['prefix' => 'page'], function(){
     Route::get('/{id}', 'PageController@show');
     Route::put('/{id}', 'PageController@update');
     Route::delete('/{id}', 'PageController@destroy');
+
+    Route::group(['prefix' => 'page/module'], function(){
+        Route::get('/', 'PageModuleController@index');
+        Route::post('/', 'PageModuleController@store');
+        Route::get('/{id}', 'PageModuleController@show');
+        Route::put('/{id}', 'PageModuleController@update');
+        Route::delete('/{id}', 'PageModuleController@destroy');
+    });
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
