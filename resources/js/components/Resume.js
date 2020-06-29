@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Container, Grid} from "semantic-ui-react";
+import AboutCard from './Resume/AboutCard';
 
 class Resume extends Component {
     constructor() {
@@ -22,10 +23,14 @@ class Resume extends Component {
     render() {
         const name = this.state.name;
         return (
-            <Container style={{marginTop: '15px'}}>
+            <Container>
                 <Grid>
-                    <Grid.Column width={6}>{name}</Grid.Column>
-                    <Grid.Column width={10}></Grid.Column>
+                    <Grid.Column width={6}>
+                        <AboutCard />
+                    </Grid.Column>
+                    <Grid.Column width={10}>
+                        <p>test</p>
+                    </Grid.Column>
                 </Grid>
             </Container>
         );
