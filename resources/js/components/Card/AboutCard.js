@@ -34,7 +34,6 @@ class AboutCard extends Component {
                             <Card.Meta>{this.props.age} Years Old</Card.Meta>
                         </Card.Content>
                         <Card.Content extra>
-
                             <List>
                                 <List.Item>
                                     <Icon large="true" name={'github square'} />
@@ -49,7 +48,6 @@ class AboutCard extends Component {
                                     <List.Content>{this.props.followers} Github Followers</List.Content>
                                 </List.Item>
                             </List>
-
                         </Card.Content>
 
                     </Card>

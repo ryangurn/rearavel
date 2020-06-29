@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import {Container, Grid} from "semantic-ui-react";
-import AboutCard from './Card/AboutCard';
 import moment from "moment";
+
+
+import AboutCard from './Card/AboutCard';
+import EducationCard from "./Card/EducationCard";
 
 class Resume extends Component {
     constructor() {
@@ -39,6 +42,7 @@ class Resume extends Component {
                 <Grid>
                     <Grid.Column width={6}>
                         <AboutCard name={this.state.settingName} age={this.state.settingAge} content={this.state.settingDescription} isContent={true} repos={0} stars={0} followers={0} />
+                        <EducationCard />
                     </Grid.Column>
                     <Grid.Column width={10}>
                         <p>test</p>
