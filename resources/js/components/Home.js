@@ -7,7 +7,8 @@ import {
     Grid,
     Container
 } from 'semantic-ui-react'
-import HomeCard from './Home/HomeCard'
+import AboutCard from './Card/AboutCard'
+import moment from "moment";
 
 class Home extends Component {
     constructor() {
@@ -26,6 +27,17 @@ class Home extends Component {
         axios.get('/api/page/slug/home').then(response => {
             document.title = response.data[0].title;
         });
+
+        // setup the settings values
+        axios.get('/api/setting/key/name,age,description,github_repo,github_star,github_follower').then(response => {
+            this.setState({
+                name: response.data[0].payload[0],
+                age: moment().diff(response.data[1].payload, 'years'),
+                repos: response.data[2].payload.count,
+                stars: response.data[3].payload.count,
+                followers: response.data[4].payload.count
+            });
+        });
     }
 
     render() {
@@ -40,7 +52,7 @@ class Home extends Component {
                     <Grid.Column width={16}>
                         <h2>About {name}</h2>
                     </Grid.Column>
-                    <HomeCard />
+                    <AboutCard name={name} age={age} isContent={false} content={'placeholder'} repos={repos} stars={stars} followers={followers} />
                     <Grid.Column width={10}>
                         <Card fluid>
                             <Card.Content>
@@ -49,7 +61,6 @@ class Home extends Component {
                                     About Me
                                 </Card.Header>
                                 <Card.Description>
-
                                     Hi, I am a programmer based in Eugene Oregon working on developing large scale enterprise applications. I am a full-time student at the University of Oregon. On this website, you will find information about my specialities and services ranging from custom application development to cyber security consulting. Please feel free to take a look around and inquire if you have any questions.
                                 </Card.Description>
                             </Card.Content>
