@@ -9,6 +9,7 @@ import SkillsCard from "./Card/SkillsCard";
 import BasicsCard from "./Card/BasicsCard";
 import ComputerSkillsCard from "./Card/ComputerSkillsCard";
 import StatisticsCard from "./Card/StatisticsCard";
+import ResumeSection from "./Card/Resume/ResumeSection";
 
 class Resume extends Component {
     constructor() {
@@ -53,6 +54,7 @@ class Resume extends Component {
                         <BasicsCard name={'Basics'} items={[{color: 'red', icon: 'briefcase', text: 'Programmer & Cyber Security Specialist '}, {color: 'orange', icon: 'inbox', text: 'ryangurnick@gmail.com'}, {color: 'olive', icon: 'phone volume', text: '+1 (818) 835-3177'}, {color: 'green', icon: 'linkify', text: 'https://ryangurnick.com'}]} />
                         <ComputerSkillsCard />
                         <StatisticsCard />
+                        <ResumeSection name={'Computer Science'} />
                     </Grid.Column>
                 </Grid>
             </Container>
