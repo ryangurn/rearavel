@@ -4,25 +4,19 @@ import {
     Card,
     Icon,
     Grid,
-    List, Button
+    List,
+    Button
 } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 class ComputerSkillsCard extends Component {
-    constructor() {
-        super();
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
         return (
             <Card fluid>
                 <Card.Content>
                     <Card.Header>
                         <Icon name={'desktop'} />
-                        Computer Skills
+                        {this.props.name}
                         <Button animated={true} size={'mini'} className={'compact right floated'}>
                             <Button.Content visible>Edit</Button.Content>
                             <Button.Content hidden>
@@ -32,98 +26,21 @@ class ComputerSkillsCard extends Component {
                     </Card.Header>
                     <Card.Description>
                         <Grid columns={2}>
-                            <Grid.Column>
-                                <h4>Specialities</h4>
-                                <List>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Web Design</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Database Development & Management</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Cyber Security</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                </List>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <h4>Software</h4>
-                                <List>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Web Design</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Database Development & Management</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Cyber Security</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                </List>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <h4>Operating Systems</h4>
-                                <List>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Web Design</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Database Development & Management</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Cyber Security</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                </List>
-                            </Grid.Column>
-                            <Grid.Column>
-                                <h4>Cyber Security</h4>
-                                <List>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Web Design</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Database Development & Management</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                    <List.Item>
-                                        <List.Icon name={'right triangle'} />
-                                        <List.Content>
-                                            <List.Header>Cyber Security</List.Header>
-                                        </List.Content>
-                                    </List.Item>
-                                </List>
-                            </Grid.Column>
+                            { this.props.items.map((innerArr, k) => (
+                                <Grid.Column>
+                                    <h4>{innerArr.section}</h4>
+                                    <List key={k}>
+                                        { innerArr.texts.map((item, key) =>
+                                            <List.Item>
+                                                <List.Icon name={'right triangle'} />
+                                                <List.Content>
+                                                    <List.Header>{item}</List.Header>
+                                                </List.Content>
+                                            </List.Item>
+                                        )}
+                                    </List>
+                                </Grid.Column>
+                            ))}
                         </Grid>
                     </Card.Description>
                 </Card.Content>
@@ -131,5 +48,17 @@ class ComputerSkillsCard extends Component {
         );
     }
 }
+
+ComputerSkillsCard.propTypes = {
+    name: PropTypes.string,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+          section: PropTypes.string,
+          texts: PropTypes.arrayOf(
+              PropTypes.string
+          )
+      })
+    ),
+};
 
 export default ComputerSkillsCard;
