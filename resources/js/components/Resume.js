@@ -50,7 +50,7 @@ class Resume extends Component {
                         <SkillsCard />
                     </Grid.Column>
                     <Grid.Column width={10}>
-                        <BasicsCard />
+                        <BasicsCard name={'Basics'} items={[{color: 'red', icon: 'briefcase', text: 'Programmer & Cyber Security Specialist '}, {color: 'orange', icon: 'inbox', text: 'ryangurnick@gmail.com'}, {color: 'olive', icon: 'phone volume', text: '+1 (818) 835-3177'}, {color: 'green', icon: 'linkify', text: 'https://ryangurnick.com'}]} />
                         <ComputerSkillsCard />
                         <StatisticsCard />
                     </Grid.Column>
