@@ -39,6 +39,18 @@ class SkillsCard extends Component {
                                     Advanced
                                 </Label>
                             </List.Item>
+                            <List.Item>
+                                <List.Header>PHP</List.Header>
+                                <Label color={'red'} key={'red'} circular>
+                                    Advanced
+                                </Label>
+                            </List.Item>
+                            <List.Item>
+                                <List.Header>PHP</List.Header>
+                                <Label color={'red'} key={'red'} circular>
+                                    Advanced
+                                </Label>
+                            </List.Item>
                         </List>
                     </Card.Description>
                 </Card.Content>
