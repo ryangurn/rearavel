@@ -50,7 +50,7 @@ class App extends Component {
                         </Container>
                     </Menu>
 
-                    <Container main style={{ marginTop: '7em' }}>
+                    <Container main="true" style={{ marginTop: '7em' }}>
                         <Route exact path={'/'} component={Home} />
                         <Route exact path={'/resume'} component={Resume} />
                     </Container>

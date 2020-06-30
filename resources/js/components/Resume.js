@@ -5,6 +5,7 @@ import moment from "moment";
 
 import AboutCard from './Card/AboutCard';
 import EducationCard from "./Card/EducationCard";
+import SkillsCard from "./Card/SkillsCard";
 
 class Resume extends Component {
     constructor() {
@@ -43,6 +44,7 @@ class Resume extends Component {
                     <Grid.Column width={6}>
                         <AboutCard name={this.state.settingName} age={this.state.settingAge} content={this.state.settingDescription} isContent={true} repos={0} stars={0} followers={0} />
                         <EducationCard />
+                        <SkillsCard />
                     </Grid.Column>
                     <Grid.Column width={10}>
                         <p>test</p>
