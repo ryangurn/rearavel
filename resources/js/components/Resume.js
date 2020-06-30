@@ -8,6 +8,7 @@ import EducationCard from "./Card/EducationCard";
 import SkillsCard from "./Card/SkillsCard";
 import BasicsCard from "./Card/BasicsCard";
 import ComputerSkillsCard from "./Card/ComputerSkillsCard";
+import StatisticsCard from "./Card/StatisticsCard";
 
 class Resume extends Component {
     constructor() {
@@ -51,6 +52,7 @@ class Resume extends Component {
                     <Grid.Column width={10}>
                         <BasicsCard />
                         <ComputerSkillsCard />
+                        <StatisticsCard />
                     </Grid.Column>
                 </Grid>
             </Container>
