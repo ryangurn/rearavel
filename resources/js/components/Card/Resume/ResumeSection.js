@@ -28,9 +28,7 @@ class ResumeSection extends Component {
                         </h3>
                     </div>
                 </Grid.Column>
-                <Grid.Column width={8}>
-                    {cards}
-                </Grid.Column>
+                {cards}
             </Grid>
         );
     }
