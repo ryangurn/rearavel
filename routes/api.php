@@ -39,9 +39,10 @@ Route::group(['prefix' => 'page'], function(){
     Route::put('/{id}', 'PageController@update');
     Route::delete('/{id}', 'PageController@destroy');
 
-    Route::group(['prefix' => 'page/module'], function(){
+    Route::group(['prefix' => 'module'], function(){
         Route::get('/', 'PageModuleController@index');
         Route::post('/', 'PageModuleController@store');
+        Route::get('/slug/{slug}', 'PageModuleController@showSlug');
         Route::get('/{id}', 'PageModuleController@show');
         Route::put('/{id}', 'PageModuleController@update');
         Route::delete('/{id}', 'PageModuleController@destroy');
