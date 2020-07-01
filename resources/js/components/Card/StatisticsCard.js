@@ -8,23 +8,22 @@ import {
     Button,
     Statistic
 } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 class StatisticsCard extends Component {
-    constructor() {
-        super();
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
+        const stats = this.props.items.map((item, key) =>
+            <Statistic>
+                <Statistic.Value>{item.num}</Statistic.Value>
+                <Statistic.Label>{item.label}</Statistic.Label>
+            </Statistic>
+        );
         return (
             <Card fluid>
                 <Card.Content>
                     <Card.Header>
                         <Icon name={'chart bar outline'} />
-                        Statistics
+                        {this.props.name}
                         <Button animated={true} size={'mini'} className={'compact right floated'}>
                             <Button.Content visible>Edit</Button.Content>
                             <Button.Content hidden>
@@ -33,23 +32,8 @@ class StatisticsCard extends Component {
                         </Button>
                     </Card.Header>
                     <Card.Description>
-                        <Statistic.Group>
-                            <Statistic>
-                                <Statistic.Value>65</Statistic.Value>
-                                <Statistic.Label>Repositories</Statistic.Label>
-                            </Statistic>
-                            <Statistic>
-                                <Statistic.Value>15</Statistic.Value>
-                                <Statistic.Label>Followers</Statistic.Label>
-                            </Statistic>
-                            <Statistic>
-                                <Statistic.Value>4</Statistic.Value>
-                                <Statistic.Label>Stars</Statistic.Label>
-                            </Statistic>
-                            <Statistic>
-                                <Statistic.Value>4</Statistic.Value>
-                                <Statistic.Label>Watchers</Statistic.Label>
-                            </Statistic>
+                        <Statistic.Group widths={'four'}>
+                            {stats}
                         </Statistic.Group>
                     </Card.Description>
                 </Card.Content>
@@ -57,5 +41,15 @@ class StatisticsCard extends Component {
         );
     }
 }
+
+StatisticsCard.propType = {
+    name: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            num: PropTypes.number,
+            label: PropTypes.string,
+        }),
+    ),
+};
 
 export default StatisticsCard;

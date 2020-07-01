@@ -10,14 +10,6 @@ import {
 import PropTypes from 'prop-types';
 
 class SkillsCard extends Component {
-    constructor() {
-        super();
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
         const items = this.props.items.map((item, key) =>
             <List.Item>

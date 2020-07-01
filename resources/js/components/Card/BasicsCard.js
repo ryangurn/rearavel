@@ -3,14 +3,6 @@ import {Label, Container, Grid, Card, Icon, Button} from "semantic-ui-react";
 import PropTypes from 'prop-types';
 
 class BasicsCard extends Component {
-    constructor() {
-        super();
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
         const labels = this.props.items.map((item, key) =>
             <Grid.Column>
