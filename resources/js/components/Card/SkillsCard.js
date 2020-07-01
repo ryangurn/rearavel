@@ -7,6 +7,7 @@ import {
     Card,
     Button
 } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 class SkillsCard extends Component {
     constructor() {
@@ -18,12 +19,20 @@ class SkillsCard extends Component {
     }
 
     render() {
+        const items = this.props.items.map((item, key) =>
+            <List.Item>
+                <List.Header>{item.skill}</List.Header>
+                <Label color={item.color} key={item.color} circular>
+                    {item.level}
+                </Label>
+            </List.Item>
+        );
         return (
             <Card fluid>
                 <Card.Content>
                     <Card.Header>
                         <Icon name={'star'} />
-                        Skills
+                        {this.props.name}
                         <Button animated={true} size={'mini'} className={'compact right floated'}>
                             <Button.Content visible>Edit</Button.Content>
                             <Button.Content hidden>
@@ -33,24 +42,7 @@ class SkillsCard extends Component {
                     </Card.Header>
                     <Card.Description>
                         <List>
-                            <List.Item>
-                                <List.Header>PHP</List.Header>
-                                <Label color={'red'} key={'red'} circular>
-                                    Advanced
-                                </Label>
-                            </List.Item>
-                            <List.Item>
-                                <List.Header>PHP</List.Header>
-                                <Label color={'red'} key={'red'} circular>
-                                    Advanced
-                                </Label>
-                            </List.Item>
-                            <List.Item>
-                                <List.Header>PHP</List.Header>
-                                <Label color={'red'} key={'red'} circular>
-                                    Advanced
-                                </Label>
-                            </List.Item>
+                            {items}
                         </List>
                     </Card.Description>
                 </Card.Content>
@@ -58,5 +50,16 @@ class SkillsCard extends Component {
         );
     }
 }
+
+SkillsCard.propTypes = {
+    name: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            skill: PropTypes.string,
+            color: PropTypes.string,
+            level: PropTypes.string,
+        }),
+    ),
+};
 
 export default SkillsCard;

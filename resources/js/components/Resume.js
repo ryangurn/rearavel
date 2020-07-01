@@ -48,7 +48,7 @@ class Resume extends Component {
                     <Grid.Column width={6}>
                         <AboutCard name={this.state.settingName} age={this.state.settingAge} content={this.state.settingDescription} isContent={true} repos={0} stars={0} followers={0} />
                         <EducationCard name={'Education'} items={[{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'},{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'},{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'}]} />
-                        <SkillsCard />
+                        <SkillsCard name={'Skills'} items={[{skill: 'PHP', color: 'red', level: 'Advanced'}, {skill: 'React', color: 'orange', level: 'Basic'}]}/>
                     </Grid.Column>
                     <Grid.Column width={10}>
                         <BasicsCard name={'Basics'} items={[{color: 'red', icon: 'briefcase', text: 'Programmer & Cyber Security Specialist '}, {color: 'orange', icon: 'inbox', text: 'ryangurnick@gmail.com'}, {color: 'olive', icon: 'phone volume', text: '+1 (818) 835-3177'}, {color: 'green', icon: 'linkify', text: 'https://ryangurnick.com'}]} />
