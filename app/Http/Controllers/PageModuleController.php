@@ -6,6 +6,10 @@ use App\PageModule;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * Class PageModuleController
+ * @package App\Http\Controllers
+ */
 class PageModuleController extends Controller
 {
     /**
@@ -68,6 +72,26 @@ class PageModuleController extends Controller
         }
 
         return response()->json(PageModule::where('id', '=', $id)->first());
+    }
+
+    /**
+     * @param $slug
+     * @return Response
+     */
+    public function showSlug($slug)
+    {
+        $validator = validator(['slug' => $slug], [
+            'slug' => 'required|min:2|max:255|exists:pages,slug'
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors()->all());
+        }
+
+        return response()->json(PageModule::whereHas('page', function ($query) use ($slug) {
+            $query->where('slug', '=', $slug);
+        })->get());
     }
 
     /**
