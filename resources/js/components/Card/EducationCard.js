@@ -7,6 +7,7 @@ import {
     Card,
     Button
 } from "semantic-ui-react";
+import PropTypes from 'prop-types';
 
 class EducationCard extends Component {
     constructor() {
@@ -18,12 +19,25 @@ class EducationCard extends Component {
     }
 
     render() {
+        const items = this.props.items.map((item, key) =>
+            <Item>
+                <Item.Content>
+                    <Label color={item.durationColor} key={item.durationColor} className={'right floated'}>
+                        {item.duration}
+                    </Label>
+
+                    <Item.Header>{item.organization}</Item.Header>
+                    <Item.Meta>{item.location}</Item.Meta>
+                    <Item.Description>{item.description}</Item.Description>
+                </Item.Content>
+            </Item>
+        );
         return (
             <Card fluid>
                 <Card.Content>
                     <Card.Header>
                         <Icon name={'building outline'} />
-                        Education
+                        {this.props.name}
 
                         <Button animated={true} size={'mini'} className={'compact right floated'}>
                             <Button.Content visible>Edit</Button.Content>
@@ -34,84 +48,7 @@ class EducationCard extends Component {
                     </Card.Header>
                     <Card.Description>
                         <Item.Group divided>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
-                            <Item>
-                                <Item.Content>
-                                    <Label color={'red'} key={'red'} className={'right floated'}>
-                                        2016-Present
-                                    </Label>
-
-                                    <Item.Header>University of Oregon</Item.Header>
-                                    <Item.Meta>Eugene, OR</Item.Meta>
-                                    <Item.Description>
-                                        GPA: 3.25 | Field of study: Computer and Informtion Science (CIS/CS) with a minor in Computer information technologies (CIT)
-                                    </Item.Description>
-                                </Item.Content>
-                            </Item>
+                            {items}
                         </Item.Group>
                     </Card.Description>
                 </Card.Content>
@@ -119,5 +56,19 @@ class EducationCard extends Component {
         );
     }
 }
+
+EducationCard.propTypes = {
+    name: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            duration: PropTypes.string,
+            durationColor: PropTypes.string,
+            location: PropTypes.string,
+            organization: PropTypes.string,
+            description: PropTypes.string,
+        }),
+    ),
+
+};
 
 export default EducationCard;

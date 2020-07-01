@@ -47,7 +47,7 @@ class Resume extends Component {
                 <Grid>
                     <Grid.Column width={6}>
                         <AboutCard name={this.state.settingName} age={this.state.settingAge} content={this.state.settingDescription} isContent={true} repos={0} stars={0} followers={0} />
-                        <EducationCard />
+                        <EducationCard name={'Education'} items={[{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'},{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'},{duration: '2016-Present', durationColor: 'orange', organization: 'University of Oregon', location: 'Eugene, OR', description: 'General Education'}]} />
                         <SkillsCard />
                     </Grid.Column>
                     <Grid.Column width={10}>
