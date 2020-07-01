@@ -54,7 +54,7 @@ class Resume extends Component {
                         <BasicsCard name={'Basics'} items={[{color: 'red', icon: 'briefcase', text: 'Programmer & Cyber Security Specialist '}, {color: 'orange', icon: 'inbox', text: 'ryangurnick@gmail.com'}, {color: 'olive', icon: 'phone volume', text: '+1 (818) 835-3177'}, {color: 'green', icon: 'linkify', text: 'https://ryangurnick.com'}]} />
                         <ComputerSkillsCard name={'Computer Skills'} items={[{section: 'Specialities', texts: ["Web Design", "Database Development & Management", "Cyber Security"]}, {section: 'Software', texts: ["Web Design", "Database Development & Management", "Cyber Security"]}, {section: 'Operating System', texts: ["Web Design", "Database Development & Management", "Cyber Security"]}, {section: 'Cyber Security', texts: ["Web Design", "Database Development & Management", "Cyber Security"]}]} />
                         <StatisticsCard name={'Statistics'} items={[{num: 65, label: 'Repositories'}, {num: 4, label: 'Followers'}, {num: 2, label: 'Stars'}, {num: 1, label: 'Watchers'}]}/>
-                        <ResumeSection name={'Computer Science'} />
+                        <ResumeSection name={'Computer Science'} items={[{organization: 'Elance', occupation: 'Freelance Programmer', description: 'This is a description', duration: 'Present', durationColor: 'red'}]} />
                     </Grid.Column>
                 </Grid>
             </Container>

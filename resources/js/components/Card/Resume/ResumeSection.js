@@ -13,6 +13,9 @@ import ResumeCard from "./ResumeCard";
 
 class ResumeSection extends Component {
     render() {
+        const cards = this.props.items.map((item, key) =>
+            <ResumeCard organization={item.organization} occupation={item.occupation} description={item.description} duration={item.duration} durationColor={item.durationColor} />
+        );
         return (
             <Grid>
                 <Grid.Column width={16}>
@@ -26,7 +29,7 @@ class ResumeSection extends Component {
                     </div>
                 </Grid.Column>
                 <Grid.Column width={8}>
-                    <ResumeCard organization={'Elance'} occupation={'Freelance Programmer'} description={'Freelance programmer for design and functionality projects '} duration={'2016'} durationColor={'red'} />
+                    {cards}
                 </Grid.Column>
             </Grid>
         );
@@ -35,6 +38,15 @@ class ResumeSection extends Component {
 
 ResumeSection.propTypes = {
     name: PropTypes.string,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            organization: PropTypes.string,
+            occupation: PropTypes.string,
+            description: PropTypes.string,
+            duration: PropTypes.string,
+            durationColor: PropTypes.string,
+        }),
+    ),
 }
 
 export default ResumeSection;

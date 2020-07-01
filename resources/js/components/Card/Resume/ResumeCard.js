@@ -32,7 +32,7 @@ class ResumeCard extends Component {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Button.Group>
+                    <Button.Group widths={'two'}>
                         <Button inverted color={'orange'} key={'orange'}>Edit</Button>
                         <Button inverted color={'red'} key={'red'}>Delete</Button>
                     </Button.Group>
