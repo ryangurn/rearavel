@@ -11,8 +11,6 @@ import {
     Accordion
 } from "semantic-ui-react";
 import PropTypes from 'prop-types';
-import ColorInput from "../Core/Input/ColorInput";
-import IconInput from "../Core/Input/IconInput";
 
 class ComputerSkillsCard extends Component {
     state = {open: false, activeIndex: 0}
