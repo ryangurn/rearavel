@@ -31,11 +31,11 @@ class Home extends Component {
         // setup the settings values
         axios.get('/api/setting/key/name,age,description,github_repo,github_star,github_follower').then(response => {
             this.setState({
-                name: response.data[0].payload[0],
-                age: moment().diff(response.data[1].payload, 'years'),
-                repos: response.data[2].payload.count,
-                stars: response.data[3].payload.count,
-                followers: response.data[4].payload.count
+                name: response.data[1].payload[0],
+                age: moment().diff(response.data[2].payload, 'years'),
+                repos: response.data[3].payload.count,
+                stars: response.data[4].payload.count,
+                followers: response.data[5].payload.count
             });
         });
     }

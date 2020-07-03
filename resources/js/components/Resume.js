@@ -33,9 +33,9 @@ class Resume extends Component {
         // setup the settings values
         axios.get('/api/setting/key/name,age,description,github_repo,github_star,github_follower').then(response => {
             this.setState({
-                settingName: response.data[0].payload[0],
-                settingAge: moment().diff(response.data[1].payload, 'years'),
-                settingDescription: response.data[5].payload,
+                settingName: response.data[1].payload[0],
+                settingAge: moment().diff(response.data[2].payload, 'years'),
+                settingDescription: response.data[0].payload,
             });
         });
     }
