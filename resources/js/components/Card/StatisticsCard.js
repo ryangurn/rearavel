@@ -24,12 +24,6 @@ class StatisticsCard extends Component {
                     <Card.Header>
                         <Icon name={'chart bar outline'} />
                         {this.props.name}
-                        <Button animated={true} size={'mini'} className={'compact right floated'}>
-                            <Button.Content visible>Edit</Button.Content>
-                            <Button.Content hidden>
-                                <Icon name={'edit outline'} />
-                            </Button.Content>
-                        </Button>
                     </Card.Header>
                     <Card.Description>
                         <Statistic.Group widths={'four'}>
