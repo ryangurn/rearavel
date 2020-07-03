@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Label, Accordion, Grid, Card, Icon, Button, Modal, Form} from "semantic-ui-react";
 import PropTypes from 'prop-types';
 import ColorInput from "../Core/Input/ColorInput";
+import IconInput from "../Core/Input/IconInput";
 
 class BasicsCard extends Component {
     state = {open: false, activeIndex: 0}
@@ -65,9 +66,7 @@ class BasicsCard extends Component {
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
                                 <ColorInput name={'Color'} width={16} />
-                                <Form.Group>
-                                    <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
-                                </Form.Group>
+                                <IconInput name={'Icon'} width={16} />
                             </Accordion.Content>
 
                             <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
@@ -79,9 +78,7 @@ class BasicsCard extends Component {
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
                                 <ColorInput name={'Color'} width={16} />
-                                <Form.Group>
-                                    <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
-                                </Form.Group>
+                                <IconInput name={'Icon'} width={16} />
                             </Accordion.Content>
 
                             <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
@@ -93,9 +90,7 @@ class BasicsCard extends Component {
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
                                 <ColorInput name={'Color'} width={16} />
-                                <Form.Group>
-                                    <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
-                                </Form.Group>
+                                <IconInput name={'Icon'} width={16} />
                             </Accordion.Content>
                         </Accordion>
                     </Modal.Content>

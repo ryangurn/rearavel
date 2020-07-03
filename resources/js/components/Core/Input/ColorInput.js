@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Dropdown, Input, Form} from "semantic-ui-react";
+import {Dropdown, Form} from "semantic-ui-react";
 import PropTypes from 'prop-types';
 
 class ColorInput extends Component {
