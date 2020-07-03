@@ -36,10 +36,10 @@ class BasicsCard extends Component {
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === key}>
                     <Form.Group>
-                        <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
+                        <Form.Input label='Text' placeholder={'Text'} value={item.text} type='text' width={16} />
                     </Form.Group>
-                    <ColorInput name={'Color'} width={16} />
-                    <IconInput name={'Icon'} width={16} />
+                    <ColorInput name={'Color'} width={16} value={item.color} />
+                    <IconInput name={'Icon'} width={16} value={item.icon} />
                 </Accordion.Content>
             </div>
         );
@@ -69,7 +69,7 @@ class BasicsCard extends Component {
                     <Modal.Header>Edit Basics</Modal.Header>
                     <Modal.Content scrolling>
                         <Form.Group>
-                            <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
+                            <Form.Input label='Text' placeholder={'Text'} type='text' value={this.props.name} width={16} />
                         </Form.Group>
                         <Accordion styled>
                             {accordion}
