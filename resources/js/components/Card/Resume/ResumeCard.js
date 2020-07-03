@@ -13,13 +13,16 @@ import PropTypes from 'prop-types';
 import ColorInput from "../../Core/Input/ColorInput";
 
 class ResumeCard extends Component {
-    state = {editOpen: false}
+    state = {editOpen: false, deleteOpen: false}
 
     showEdit = () => () => this.setState({editOpen: true})
     closeEdit = () => this.setState({editOpen: false})
 
+    showDelete = () => () => this.setState({deleteOpen: true});
+    closeDelete = () => () => this.setState({deleteOpen: false});
+
     render() {
-        const { editOpen } = this.state;
+        const { editOpen, deleteOpen } = this.state;
         return (
             <Grid.Column width={8}>
                 <Card fluid style={{height: '100%'}}>
@@ -42,7 +45,7 @@ class ResumeCard extends Component {
                     <Card.Content extra>
                         <Button.Group widths={'two'}>
                             <Button inverted color={'orange'} key={'orange'} onClick={this.showEdit()}>Edit</Button>
-                            <Button inverted color={'red'} key={'red'}>Delete</Button>
+                            <Button inverted color={'red'} key={'red'} onClick={this.showDelete()}>Delete</Button>
                         </Button.Group>
                     </Card.Content>
                 </Card>
@@ -56,8 +59,18 @@ class ResumeCard extends Component {
                         <ColorInput width={16} name={'Duration Color'} value={this.props.durationColor} />
                     </Modal.Content>
                     <Modal.Actions>
-                        <Button color={'red'} onClick={this.close}>Cancel</Button>
+                        <Button color={'red'} onClick={this.closeEdit}>Cancel</Button>
                         <Button color={'green'}>Save</Button>
+                    </Modal.Actions>
+                </Modal>
+                <Modal as={'form'} size={'tiny'} open={deleteOpen} onClose={this.closeDelete} style={{position: 'static', height: 'auto'}} className={'form'}>
+                    <Modal.Header>Delete {this.props.organization}</Modal.Header>
+                    <Modal.Content scrolling>
+                        Are you sure you want to delete this?
+                    </Modal.Content>
+                    <Modal.Actions>
+                        <Button color={'red'} onClick={this.closeDelete()}>No</Button>
+                        <Button color={'green'}>Yes</Button>
                     </Modal.Actions>
                 </Modal>
             </Grid.Column>
