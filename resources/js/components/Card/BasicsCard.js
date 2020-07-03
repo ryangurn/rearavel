@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Label, Accordion, Grid, Card, Icon, Button, Modal, Form} from "semantic-ui-react";
 import PropTypes from 'prop-types';
+import ColorInput from "../Core/Input/ColorInput";
 
 class BasicsCard extends Component {
     state = {open: false, activeIndex: 0}
@@ -50,7 +51,7 @@ class BasicsCard extends Component {
                 </Card>
                 <Modal as={'form'} size={'tiny'} open={open} onClose={this.close} style={{position: 'static', height: 'auto'}} className={'form'}>
                     <Modal.Header>Edit Basics</Modal.Header>
-                    <Modal.Content>
+                    <Modal.Content scrolling>
                         <Form.Group>
                             <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                         </Form.Group>
@@ -63,9 +64,7 @@ class BasicsCard extends Component {
                                 <Form.Group>
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
-                                <Form.Group>
-                                    <Form.Input label='Color' placeholder={'Color'} type='text' width={16} />
-                                </Form.Group>
+                                <ColorInput name={'Color'} width={16} />
                                 <Form.Group>
                                     <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
                                 </Form.Group>
@@ -79,9 +78,7 @@ class BasicsCard extends Component {
                                 <Form.Group>
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
-                                <Form.Group>
-                                    <Form.Input label='Color' placeholder={'Color'} type='text' width={16} />
-                                </Form.Group>
+                                <ColorInput name={'Color'} width={16} />
                                 <Form.Group>
                                     <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
                                 </Form.Group>
@@ -95,9 +92,7 @@ class BasicsCard extends Component {
                                 <Form.Group>
                                     <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                                 </Form.Group>
-                                <Form.Group>
-                                    <Form.Input label='Color' placeholder={'Color'} type='text' width={16} />
-                                </Form.Group>
+                                <ColorInput name={'Color'} width={16} />
                                 <Form.Group>
                                     <Form.Input label='Icon' placeholder={'Icon'} type='text' width={16} />
                                 </Form.Group>
