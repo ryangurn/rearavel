@@ -18,6 +18,8 @@ class SettingSeeder extends Seeder
         $dob = new Carbon('1998-01-30');
 
         Setting::create(['category_id' => 1, 'key' => 'title', 'payload' => [$first . ' ' . $last]]);
+        Setting::create(['category_id' => 1, 'key' => 'description', 'payload' => 'Hi, I am a programmer based in Eugene Oregon working on developing large scale enterprise applications. I am a full-time student at the University of Oregon. On this website, you will find information about my specialities and services ranging from custom application development to cyber security consulting. Please feel free to take a look around and inquire if you have any questions.']);
+
         Setting::create(['category_id' => 2, 'key' => 'name', 'payload' => [$first . ' ' . substr($last, 0, 1) . '.']]);
         Setting::create(['category_id' => 2, 'key' => 'age', 'payload' => $dob]);
 
