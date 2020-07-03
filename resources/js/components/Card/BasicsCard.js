@@ -28,6 +28,21 @@ class BasicsCard extends Component {
                 </Label>
             </Grid.Column>
         );
+        const accordion = this.props.items.map((item, key) =>
+            <div>
+                <Accordion.Title active={activeIndex === key} index={key} onClick={this.handleClick}>
+                    <Icon name='dropdown' />
+                    {item.text}
+                </Accordion.Title>
+                <Accordion.Content active={activeIndex === key}>
+                    <Form.Group>
+                        <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
+                    </Form.Group>
+                    <ColorInput name={'Color'} width={16} />
+                    <IconInput name={'Icon'} width={16} />
+                </Accordion.Content>
+            </div>
+        );
         return (
             <div>
                 <Card fluid>
@@ -57,41 +72,7 @@ class BasicsCard extends Component {
                             <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
                         </Form.Group>
                         <Accordion styled>
-                            <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-                                <Icon name='dropdown' />
-                                What is a dog?
-                            </Accordion.Title>
-                            <Accordion.Content active={activeIndex === 0}>
-                                <Form.Group>
-                                    <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
-                                </Form.Group>
-                                <ColorInput name={'Color'} width={16} />
-                                <IconInput name={'Icon'} width={16} />
-                            </Accordion.Content>
-
-                            <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick}>
-                                <Icon name='dropdown' />
-                                What kinds of dogs are there?
-                            </Accordion.Title>
-                            <Accordion.Content active={activeIndex === 1}>
-                                <Form.Group>
-                                    <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
-                                </Form.Group>
-                                <ColorInput name={'Color'} width={16} />
-                                <IconInput name={'Icon'} width={16} />
-                            </Accordion.Content>
-
-                            <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick}>
-                                <Icon name='dropdown' />
-                                How do you acquire a dog?
-                            </Accordion.Title>
-                            <Accordion.Content active={activeIndex === 2}>
-                                <Form.Group>
-                                    <Form.Input label='Text' placeholder={'Text'} type='text' width={16} />
-                                </Form.Group>
-                                <ColorInput name={'Color'} width={16} />
-                                <IconInput name={'Icon'} width={16} />
-                            </Accordion.Content>
+                            {accordion}
                         </Accordion>
                     </Modal.Content>
                     <Modal.Actions>
