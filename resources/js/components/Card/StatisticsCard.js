@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 class StatisticsCard extends Component {
     render() {
         const stats = this.props.items.map((item, key) =>
-            <Statistic>
+            <Statistic key={key.toString()}>
                 <Statistic.Value>{item.num}</Statistic.Value>
                 <Statistic.Label>{item.label}</Statistic.Label>
             </Statistic>

@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 class EducationCard extends Component {
     render() {
         const items = this.props.items.map((item, key) =>
-            <Item>
+            <Item key={key.toString()}>
                 <Item.Content>
                     <Label color={item.durationColor} key={item.durationColor} className={'right floated'}>
                         {item.duration}

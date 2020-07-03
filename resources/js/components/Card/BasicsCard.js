@@ -21,7 +21,7 @@ class BasicsCard extends Component {
     render() {
         const { open, activeIndex } = this.state;
         const labels = this.props.items.map((item, key) =>
-            <Grid.Column>
+            <Grid.Column key={key.toString()}>
                 <Label as={'a'} image color={item.color} key={item.color}>
                     <Icon name={item.icon} />
                     {item.text}

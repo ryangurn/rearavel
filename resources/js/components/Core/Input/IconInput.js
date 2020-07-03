@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class IconInput extends Component {
     tagOptions = [
         {key: '500px',text: '500px',value: '500px',icon: '500px',},
-        {key: 'accessible icon',text: 'accessible icon',value: 'accessible icon',icon: 'accessible icon',},
+        {key: 'accessible',text: 'accessible',value: 'accessible',icon: 'accessible',},
         {key: 'accusoft',text: 'accusoft',value: 'accusoft',icon: 'accusoft',},
         {key: 'address book',text: 'address book',value: 'address book',icon: 'address book',},
         {key: 'address book outline',text: 'address book outline',value: 'address book outline',icon: 'address book outline',},
@@ -300,7 +300,7 @@ class IconInput extends Component {
         {key: 'ethereum',text: 'ethereum',value: 'ethereum',icon: 'ethereum',},
         {key: 'etsy',text: 'etsy',value: 'etsy',icon: 'etsy',},
         {key: 'euro sign',text: 'euro sign',value: 'euro sign',icon: 'euro sign',},
-        {key: 'exchange alternate',text: 'exchange alternate',value: 'exchange alternate',icon: 'exchange alternate',},
+        // {key: 'exchange alternate',text: 'exchange alternate',value: 'exchange alternate',icon: 'exchange alternate',},
         {key: 'exclamation',text: 'exclamation',value: 'exclamation',icon: 'exclamation',},
         {key: 'exclamation circle',text: 'exclamation circle',value: 'exclamation circle',icon: 'exclamation circle',},
         {key: 'exclamation triangle',text: 'exclamation triangle',value: 'exclamation triangle',icon: 'exclamation triangle',},
@@ -524,7 +524,7 @@ class IconInput extends Component {
         {key: 'lightbulb outline',text: 'lightbulb outline',value: 'lightbulb outline',icon: 'lightbulb outline',},
         {key: 'linechat',text: 'linechat',value: 'linechat',icon: 'linechat',},
         {key: 'linkedin',text: 'linkedin',value: 'linkedin',icon: 'linkedin',},
-        {key: 'linkedin in',text: 'linkedin in',value: 'linkedin in',icon: 'linkedin in',},
+        // {key: 'linkedin in',text: 'linkedin in',value: 'linkedin in',icon: 'linkedin in',},
         {key: 'linkify',text: 'linkify',value: 'linkify',icon: 'linkify',},
         {key: 'linode',text: 'linode',value: 'linode',icon: 'linode',},
         {key: 'linux',text: 'linux',value: 'linux',icon: 'linux',},
@@ -948,8 +948,6 @@ class IconInput extends Component {
         {key: 'yoast',text: 'yoast',value: 'yoast',icon: 'yoast',},
         {key: 'youtube',text: 'youtube',value: 'youtube',icon: 'youtube',},
         {key: 'youtube square',text: 'youtube square',value: 'youtube square',icon: 'youtube square',},
-        {key: '',text: '',value: '',icon: '',},
-
     ];
 
     render() {

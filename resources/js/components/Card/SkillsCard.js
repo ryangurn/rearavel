@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 class SkillsCard extends Component {
     render() {
         const items = this.props.items.map((item, key) =>
-            <List.Item>
+            <List.Item key={key.toString()}>
                 <List.Header>{item.skill}</List.Header>
                 <Label color={item.color} key={item.color} circular>
                     {item.level}

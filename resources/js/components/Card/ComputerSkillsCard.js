@@ -27,11 +27,11 @@ class ComputerSkillsCard extends Component {
                     <Card.Description>
                         <Grid columns={2}>
                             { this.props.items.map((innerArr, k) => (
-                                <Grid.Column>
+                                <Grid.Column key={k.toString()}>
                                     <h4>{innerArr.section}</h4>
                                     <List key={k}>
                                         { innerArr.texts.map((item, key) =>
-                                            <List.Item>
+                                            <List.Item key={key.toString()}>
                                                 <List.Icon name={'right triangle'} />
                                                 <List.Content>
                                                     <List.Header>{item}</List.Header>
