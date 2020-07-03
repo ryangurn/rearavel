@@ -86,7 +86,7 @@ class ComputerSkillsCard extends Component {
                     <Modal.Header>Edit Computer Skills</Modal.Header>
                     <Modal.Content scrolling>
                         <Form.Group>
-                            <Form.Input label='Title' placeholder={'Title'} type='text' width={16} />
+                            <Form.Input label='Title' placeholder={'Title'} type='text' width={16} value={this.props.name} />
                         </Form.Group>
                         <Accordion styled>
                             {accordion}
