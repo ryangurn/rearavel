@@ -5,7 +5,7 @@ import ColorInput from "../Core/Input/ColorInput";
 import IconInput from "../Core/Input/IconInput";
 
 class BasicsCard extends Component {
-    state = {open: false, activeIndex: 0}
+    state = {open: false, activeIndex: 0, fields: {}, items: this.props.items, name: this.props.name}
 
     show = () => () => this.setState({open: true})
     close = () => this.setState({open: false})
@@ -17,12 +17,16 @@ class BasicsCard extends Component {
         this.setState({ activeIndex: newIndex })
     }
 
+    handleChange(e, f) {
+
         console.log(e.target.value);
         console.log(f.value);
+        
+    }
 
     render() {
         const { open, activeIndex } = this.state;
-        const labels = this.props.items.map((item, key) =>
+        const labels = this.state.items.map((item, key) =>
             <Grid.Column key={key.toString()}>
                 <Label as={'a'} image color={item.color} key={item.color}>
                     <Icon name={item.icon} />
@@ -30,7 +34,7 @@ class BasicsCard extends Component {
                 </Label>
             </Grid.Column>
         );
-        const accordion = this.props.items.map((item, key) =>
+        const accordion = this.state.items.map((item, key) =>
             <div key={key.toString()}>
                 <Accordion.Title active={activeIndex === key} index={key} onClick={this.handleClick}>
                     <Icon name='dropdown' />
@@ -38,10 +42,10 @@ class BasicsCard extends Component {
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === key}>
                     <Form.Group>
-                        <Form.Input label='Text' placeholder={'Text'} value={item.text} type='text' width={16} />
+                        <Form.Input label='Text' placeholder={'Text'} defaultValue={item.text} type='text' width={16} onChange={this.handleChange} />
                     </Form.Group>
-                    <ColorInput name={'Color'} width={16} value={item.color} />
-                    <IconInput name={'Icon'} width={16} value={item.icon} />
+                    <ColorInput name={'Color'} width={16} value={item.color} onChange={this.handleChange} />
+                    <IconInput name={'Icon'} width={16} value={item.icon} onChange={this.handleChange} />
                 </Accordion.Content>
             </div>
         );
@@ -51,7 +55,7 @@ class BasicsCard extends Component {
                     <Card.Content>
                         <Card.Header>
                             <Icon name={'user circle'} />
-                            {this.props.name}
+                            {this.state.name}
 
                             <Button animated={true} size={'mini'} className={'compact right floated'} onClick={this.show()}>
                                 <Button.Content visible>Edit</Button.Content>
@@ -71,7 +75,7 @@ class BasicsCard extends Component {
                     <Modal.Header>Edit Basics</Modal.Header>
                     <Modal.Content scrolling>
                         <Form.Group>
-                            <Form.Input label='Text' placeholder={'Text'} type='text' value={this.props.name} width={16} />
+                            <Form.Input label='Text' placeholder={'Text'} type='text' defaultValue={this.state.name} width={16} onChange={this.handleChange} />
                         </Form.Group>
                         <Accordion styled>
                             {accordion}
@@ -79,7 +83,7 @@ class BasicsCard extends Component {
                     </Modal.Content>
                     <Modal.Actions>
                         <Button color={'red'} onClick={this.close}>Cancel</Button>
-                        <Button color={'green'}>Save</Button>
+                        <Button color={'green'} onClick={this.save}>Save</Button>
                     </Modal.Actions>
                 </Modal>
             </div>
