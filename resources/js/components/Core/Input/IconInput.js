@@ -17,7 +17,7 @@ class IconInput extends Component {
     render() {
         return (
             <Form.Group>
-                <Form.Field label={this.props.name} control={Dropdown} placeholder={this.props.name} search fluid selection options={this.tagOptions} width={this.props.width} value={this.props.value || {}} />
+                <Form.Field label={this.props.name} control={Dropdown} placeholder={this.props.name} search fluid selection options={this.tagOptions} width={this.props.width} defaultValue={this.props.value || {}} onChange={this.props.onChange} />
             </Form.Group>
         );
     }
@@ -27,6 +27,7 @@ IconInput.propTypes = {
     name: PropTypes.string,
     width: PropTypes.number,
     value: PropTypes.string,
+    onChange: PropTypes.func,
 };
 
 export default IconInput;

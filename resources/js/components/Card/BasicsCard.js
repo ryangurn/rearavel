@@ -17,6 +17,8 @@ class BasicsCard extends Component {
         this.setState({ activeIndex: newIndex })
     }
 
+        console.log(e.target.value);
+        console.log(f.value);
 
     render() {
         const { open, activeIndex } = this.state;
