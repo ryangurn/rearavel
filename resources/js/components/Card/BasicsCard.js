@@ -29,7 +29,7 @@ class BasicsCard extends Component {
             </Grid.Column>
         );
         const accordion = this.props.items.map((item, key) =>
-            <div>
+            <div key={key.toString()}>
                 <Accordion.Title active={activeIndex === key} index={key} onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     {item.text}

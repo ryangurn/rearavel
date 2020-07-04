@@ -28,14 +28,14 @@ class ComputerSkillsCard extends Component {
     render() {
         const { open, activeIndex } = this.state;
         const accordion = this.props.items.map((item, key) =>
-            <div>
+            <div key={key.toString()}>
                 <Accordion.Title active={activeIndex === key} index={key} onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     {item.section}
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === key}>
                     { item.texts.map((i, k) =>
-                        <Form.Group fluid>
+                        <Form.Group key={k.toString()}>
                             <Form.Input label='Text' placeholder={'Text'} type='text' value={i} action width={16}>
                                 <input />
                                 <Button color={'red'} type='button'>Remove</Button>
@@ -83,9 +83,7 @@ class ComputerSkillsCard extends Component {
                 <Modal as={'form'} size={'tiny'} open={open} onClose={this.close} style={{position: 'static', height: 'auto'}} className={'form'}>
                     <Modal.Header>Edit Computer Skills</Modal.Header>
                     <Modal.Content scrolling>
-                        <Form.Group>
-                            <Form.Input label='Title' placeholder={'Title'} type='text' width={16} value={this.props.name} />
-                        </Form.Group>
+                        <Form.Input label='Title' placeholder={'Title'} type='text' width={16} value={this.props.name} />
                         <Accordion styled>
                             {accordion}
                         </Accordion>

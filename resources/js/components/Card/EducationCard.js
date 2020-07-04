@@ -30,7 +30,7 @@ class EducationCard extends Component {
         const items = this.props.items.map((item, key) =>
             <Item key={key.toString()}>
                 <Item.Content>
-                    <Label color={item.durationColor} key={item.durationColor} className={'right floated'}>
+                    <Label color={item.durationColor} key={key.toString()} className={'right floated'}>
                         {item.duration}
                     </Label>
 
@@ -41,7 +41,7 @@ class EducationCard extends Component {
             </Item>
         );
         const accordion = this.props.items.map((item, key) =>
-            <div>
+            <div key={key.toString()}>
                 <Accordion.Title active={activeIndex === key} index={key} onClick={this.handleClick}>
                     <Icon name='dropdown' />
                     { item.organization }

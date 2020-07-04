@@ -14,7 +14,7 @@ import ResumeCard from "./ResumeCard";
 class ResumeSection extends Component {
     render() {
         const cards = this.props.items.map((item, key) =>
-            <ResumeCard organization={item.organization} occupation={item.occupation} description={item.description} duration={item.duration} durationColor={item.durationColor} />
+            <ResumeCard key={key.toString()} organization={item.organization} occupation={item.occupation} description={item.description} duration={item.duration} durationColor={item.durationColor} />
         );
         return (
             <Grid>
